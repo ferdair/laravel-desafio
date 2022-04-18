@@ -17,7 +17,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
 
             $table->id();
-            $table->unsignedInteger('id_cliente');
+            $table->bigInteger('id_cliente')->unsigned();
             $table->string('origen', 50);
             $table->string('destino', 50);
             $table->text('detalle', 100);
@@ -26,7 +26,6 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('id_cliente')->references('id')->on('clientes')->onDelete('cascade')->onUpdate("cascade");
-
         });
     }
 

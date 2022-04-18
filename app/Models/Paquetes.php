@@ -9,5 +9,5 @@ class Paquetes extends Model
 {
     use HasFactory;
     protected $table = 'paquetes';
-    protected $fillable = ['origen', 'destino', 'detalle', 'precio', 'peso'];
+    protected $fillable = ['id_cliente', 'origen', 'destino', 'detalle', 'precio', 'peso'];
 }

@@ -52,11 +52,11 @@ class PaqueteController extends Controller
             $paquete->peso = is_null($request->peso) ? $paquete->peso : $request->peso;
             $paquete->save();
             return response()->json([
-                "message" => "Book Updated."
+                "message" => "Paquete Actualizado."
             ], 404);
         } else {
             return response()->json([
-                "message" => "Book Not Found."
+                "message" => "Paquete no encontrado."
             ], 404);
         }
 
@@ -81,6 +81,19 @@ class PaqueteController extends Controller
         } else {
             return response()->json([
                 "message" => "Paquete no encontrado."
+            ], 404);
+        }
+    }
+
+    public function findByCliente($id)
+    {
+        $paquetes = Paquetes::where('id_cliente', '=', $id)->get();
+
+        if (!empty($paquetes)) {
+            return response()->json($paquetes);
+        } else {
+            return response()->json([
+                "message" => "Ṕaquete no encontrado"
             ], 404);
         }
     }
